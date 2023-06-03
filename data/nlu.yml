@@ -1,0 +1,106 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: details
+  examples: |
+    - i want to give my details
+    - do you want to know me
+    - can I tell you abour me
+    - details
+
+- intent: id
+  examples: |
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+
+- intent: date
+  examples: |
+    - 15/03/23
+    - 16/03/23
+    - 17/03/23
+    - 14/03/23
+    - 20/03/23
+
+- intent: time
+  examples: |
+    - 10:00
+    - 12:00
+    - 6:00
+    - 23:00
+    - 24:00
+    - 1:00 
+
+- intent: email 
+  examples: |
+    - paras@gmail.com
+    - yasmin@yahoo.com
+    - khushi@gmail.com
+    - raj@gmail.com
+
+- intent: contact
+  examples: |
+    - i want to contact you
+    - please tell me how to contact
+    - contact
+    - please contact me
+
+- intent: about
+  examples: |
+    - tell me about
+    - what are the facility provided
+    - information
+    - about

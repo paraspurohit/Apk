@@ -1,0 +1,158 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - details
+  - id
+  - date
+  - time
+  - location
+  - email
+  - contact
+  - about
+
+forms:
+  booking_form:
+    required_slots:
+    - name
+    - email
+    - phone
+    - diseases
+  doctor_form:
+    required_slots:
+    - id
+    - date
+    - time
+  email_form:
+    required_slots:
+    - user_email
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: booking_form
+           requested_slot: name
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: booking_form
+           requested_slot: email
+  phone:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: booking_form
+           requested_slot: phone
+  diseases:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: booking_form
+           requested_slot: diseases
+  id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: doctor_form
+           requested_slot: id
+        # intent: id
+  date:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: doctor_form
+           requested_slot: date
+        # intent: date
+  time:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: doctor_form
+           requested_slot: time
+        # intent: date
+  user_email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: email_form
+           requested_slot: user_email
+        
+responses:
+  utter_info:
+  - text: Please [Click here](https://www.google.com/maps/place/Vishesh+Jupiter+Hospital/)
+
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_ask_name:
+  - text: "So to get things started, may I know your name, please? "
+
+  utter_ask_email:
+  - text: "Please enter your email address so that I can contact you."
+
+  utter_ask_phone:
+  - text: "Please enter you number, will help us in reaching to you ASAP."
+
+  utter_ask_diseases:
+  - text: "Great, thank you! Now please give breif discription about your problem."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - actions
+  - action_greet
+  - action_details
+  - validate_booking_form
+  - action_confirmation
+  - action_Deny
+  - action_ask_id
+  - action_ask_date
+  - action_ask_time
+  - action_appointment
+  - action_location
+  - action_ask_user_email
+  - validate_email_form
+  - action_check_user
+  - action_reset_slot
+  - action_contact
+  - action_about
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

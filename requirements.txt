@@ -1,0 +1,3 @@
+wheel
+python-dotenv
+rasa == 3.5.6

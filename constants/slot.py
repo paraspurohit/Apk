@@ -1,0 +1,8 @@
+SLOT_NAME = "name"
+SLOT_EMAIL = "email"
+SLOT_PHONE = "phone"
+SLOT_DISEASES = "diseases"
+SLOT_USER_DETAIL = "user_details"
+SLOT_DR_ID = "id"
+SLOT_DATE = "date"
+SLOT_USER_EMAIL = "user_email"

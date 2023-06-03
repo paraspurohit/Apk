@@ -1,0 +1,40 @@
+{
+    "user_details": [
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "headache"
+        },
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "pain"
+        },
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "pain"
+        },
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "pain"
+        },
+        {
+            "name": "asd",
+            "email": "asd@gmai.vom",
+            "phone": "1231231234",
+            "disease": "asd"
+        },
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "pain"
+        }
+    ]
+}

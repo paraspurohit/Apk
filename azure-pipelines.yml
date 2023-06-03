@@ -1,0 +1,54 @@
+trigger:
+    - develop
+  
+resources:
+  - repo: self
+  
+variables:
+  - group: Common
+stages:
+  - stage: Build
+    displayName: Build and push stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            displayName: Build and push an image to azure container registry
+            inputs:
+              command: buildAndPush
+              repository: "apk-hospital"
+              dockerfile: "$(Build.SourcesDirectory)/Dockerfile"
+              containerRegistry: $(dockerRegistryServiceConnection)
+              tags: |
+                $(Build.BuildId)
+                latest
+
+  - stage: Deploy_In_Dev
+    variables:
+      - group: dev-apk-hospital
+    jobs:
+      - deployment: kubernetes_deployment
+        environment: dev-environment
+        pool: "learning-rasa"
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: SSH@0
+                  inputs:
+                    sshEndpoint: "MindPath02 Kubernetes"
+                    runOptions: "inline"
+                    inline: |
+                      echo "===============Updating Deployments================"
+                       kubectl set image deployment/apk-hospital apk-hospital=$(ACR_DEV)/$(IMAGE):$(Build.BuildId)
+
+                      printf "#################UPDATING OR ADDING  VARIABLE######"  
+                       kubectl set env deployment/apk-hospital
+                      printf "###############List All Environment################"
+                       kubectl set env deployment/apk-hospital --list
+                    readyTimeout: "20000"
+
+  

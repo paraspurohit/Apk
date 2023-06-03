@@ -1,0 +1,51 @@
+version: "3.1"
+
+stories:
+- story: greeting 
+  steps:
+    - intent: greet
+    - action: action_greet
+    - action: action_reset_slot
+
+
+- story: Activate doctor form
+  steps:
+    - intent: affirm
+    - action: action_confirmation
+    - action: doctor_form
+    - active_loop: doctor_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_appointment
+
+- story: location
+  steps:
+    - intent: location
+    - action: utter_info
+
+- story: email
+  steps:
+    - intent: email
+    - action: email_form
+    - active_loop: email_form
+    - active_loop: null
+    - slot_was_set: 
+      - requested_slot: null  
+    - action: action_check_user
+
+- story: contact
+  steps: 
+    - intent: contact
+    - action: action_reset_slot
+    - action: booking_form
+    - active_loop: booking_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_contact
+
+- story: about
+  steps:
+    - intent: about
+    - action: action_about

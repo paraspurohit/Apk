@@ -1,0 +1,25 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Activate booking form
+  steps:
+  - intent: details
+  - action: booking_form
+  - active_loop: booking_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_details
+  
+- rule: Deny by user
+  steps:
+  - intent: deny
+  - action: action_Deny
+  - action: booking_form
+  - active_loop: booking_form
