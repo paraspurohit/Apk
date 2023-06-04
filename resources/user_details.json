@@ -35,6 +35,12 @@
             "email": "paras@gmail.com",
             "phone": "7723087003",
             "disease": "pain"
+        },
+        {
+            "name": "paras",
+            "email": "paras@gmail.com",
+            "phone": "7723087003",
+            "disease": "pain"
         }
     ]
 }

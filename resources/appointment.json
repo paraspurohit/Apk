@@ -34,6 +34,27 @@
             "phone": "7723087003",
             "date": "25/05/23",
             "time": "busy"
+        },
+        {
+            "Dr_id": 2,
+            "Patient": "Paras",
+            "phone": "7723087003",
+            "date": "29/05/23",
+            "time": "busy"
+        },
+        {
+            "Dr_id": 0,
+            "Patient": "Paras Purohit",
+            "phone": "7723087003",
+            "date": "23/05/23",
+            "time": "busy"
+        },
+        {
+            "Dr_id": 0,
+            "Patient": "Saras",
+            "phone": "9806159759",
+            "date": "23/05/23",
+            "time": "busy"
         }
     ]
 }
