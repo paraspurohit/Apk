@@ -5,31 +5,33 @@ from rasa_sdk.executor import CollectingDispatcher
 
 from components.button import Button
 from constants.actions import ACTION_ASK_DATE
-from constants.common import DOCTOR_DETAIL,DATE,ID,TEXT,AVAILABILITY
-from constants.file import DOCTOR_DETAIL_FILE_PATH
+from constants.common import ID, PAYLOAD, DOCTOR_SHEET, TITLE
 from constants.messages import DATE_TEXT
-from helper.json_Helper import JsonHelper
+from services.buttonService import ButtonService
+from services.gsheetService import GSheetService
 
 
 class ActionAskDate(Action):
 
     def __init__(self):
-        self.__jsonhelper = JsonHelper()
+        self.__gsheetservice = GSheetService()
+        self.__buttonService = ButtonService()
 
     def name(self) -> Text:
-        return ACTION_ASK_DATE 
+        return ACTION_ASK_DATE
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        check_id = tracker.latest_message[TEXT]
+        check_id = tracker.get_slot(ID)
+        data = await self.__gsheetservice.getdata(DOCTOR_SHEET)
         date_buttons = []
-        data = self.__jsonhelper.read(DOCTOR_DETAIL_FILE_PATH)
-        for doctor in data.get(DOCTOR_DETAIL):
-            if check_id == doctor.get(ID):
-                for dates in doctor.get(AVAILABILITY):
-                    date = dates.get(DATE)
-                    button = Button(date,date).dict()
-                    date_buttons.append(button)
-                break
+        date = data[check_id][3]
+        date = date.split("\n")
+        for date in date:
+            button = {
+               TITLE : date,
+               PAYLOAD : date,
+            }
+            date_buttons.append(button)
+        date_buttons = await self.__buttonService.button(date_buttons)
         dispatcher.utter_message(text=DATE_TEXT, buttons=date_buttons)
         return []
-    

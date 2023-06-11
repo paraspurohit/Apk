@@ -7,10 +7,27 @@ stories:
     - action: action_greet
     - action: action_reset_slot
 
+- story: menu
+  steps:
+    - intent: menu
+    - action: action_menu
+
+- story: Deny by user
+  steps:
+    - intent: deny
+    - action: action_reset_slot
+    - action: action_Deny
+    - action: booking_form
+    - active_loop: booking_form
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_details
 
 - story: Activate doctor form
   steps:
     - intent: affirm
+    - action: action_reset_slot
     - action: action_confirmation
     - action: doctor_form
     - active_loop: doctor_form
@@ -27,6 +44,7 @@ stories:
 - story: email
   steps:
     - intent: email
+    - action: action_reset_slot
     - action: email_form
     - active_loop: email_form
     - active_loop: null
@@ -37,12 +55,12 @@ stories:
 - story: contact
   steps: 
     - intent: contact
-    - action: action_reset_slot
-    - action: booking_form
-    - active_loop: booking_form
-    - active_loop: null
-    - slot_was_set:
-      - requested_slot: null
+    # - action: action_reset_slot
+    # - action: booking_form
+    # - active_loop: booking_form
+    # - active_loop: null
+    # - slot_was_set:
+    #   - requested_slot: null
     - action: action_contact
 
 - story: about

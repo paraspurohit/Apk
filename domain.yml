@@ -2,7 +2,7 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
+  - menu
   - affirm
   - deny
   - details
@@ -71,7 +71,6 @@ slots:
         conditions:
          - active_loop: doctor_form
            requested_slot: id
-        # intent: id
   date:
     type: text
     influence_conversation: true
@@ -80,7 +79,6 @@ slots:
         conditions:
          - active_loop: doctor_form
            requested_slot: date
-        # intent: date
   time:
     type: text
     influence_conversation: true
@@ -89,7 +87,6 @@ slots:
         conditions:
          - active_loop: doctor_form
            requested_slot: time
-        # intent: date
   user_email:
     type: text
     influence_conversation: true
@@ -103,12 +100,6 @@ responses:
   utter_info:
   - text: Please [Click here](https://www.google.com/maps/place/Vishesh+Jupiter+Hospital/)
 
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_ask_name:
-  - text: "So to get things started, may I know your name, please? "
-
   utter_ask_email:
   - text: "Please enter your email address so that I can contact you."
 
@@ -118,24 +109,9 @@ responses:
   utter_ask_diseases:
   - text: "Great, thank you! Now please give breif discription about your problem."
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 actions:
-  - actions
+  - action_menu
+  - action_ask_name
   - action_greet
   - action_details
   - validate_booking_form
@@ -152,6 +128,7 @@ actions:
   - action_reset_slot
   - action_contact
   - action_about
+  - validate_doctor_form
   
 session_config:
   session_expiration_time: 60

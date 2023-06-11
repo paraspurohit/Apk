@@ -13,6 +13,5 @@ class ActionAskUserEmail(Action):
         return ACTION_ASK_USER_EMAIL
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text= REACH_TEXT)
+        dispatcher.utter_message(text=REACH_TEXT)
         return []
-    

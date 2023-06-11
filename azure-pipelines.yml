@@ -46,7 +46,7 @@ stages:
                        kubectl set image deployment/apk-hospital apk-hospital=$(ACR_DEV)/$(IMAGE):$(Build.BuildId)
 
                       printf "#################UPDATING OR ADDING  VARIABLE######"  
-                       kubectl set env deployment/apk-hospital
+                       kubectl set env deployment/apk-hospital API_KEY=$(API_KEY) TENANT_ID=$(TENANT_ID) EBOTIFY_URL=$(EBOTIFY_URL) IS_LIVE_AGENT=$(IS_LIVE_AGENT)
                       printf "###############List All Environment################"
                        kubectl set env deployment/apk-hospital --list
                     readyTimeout: "20000"

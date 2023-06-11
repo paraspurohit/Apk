@@ -1,5 +1,7 @@
 DOCTOR_DETAIL = "doctor_detail"
 NAME = "name"
+TITLE = 'title'
+PAYLOAD = 'payload'
 TEXT = "text"
 SPECIALITY = "speciality"
 ID = "id"
@@ -14,3 +16,9 @@ USER_DETAILS = "user_details"
 EMAIL = "email"
 USER_DETAIL = "user_details"
 APPIONTMENT = "appointment"
+APPIONTMENT_SHEET = "Sheet3"
+USER_SHEET = "Sheet1"
+DOCTOR_SHEET = "Sheet2"
+SPREADSHEET_ID = '1lbczudmolZeFCVqpjF1EwFyxAKANFuI_Co6KmVgOMDo'
+MENU = "menu"
+REQUESTED_SLOT = "requested_slot"

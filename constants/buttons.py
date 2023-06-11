@@ -28,5 +28,25 @@ CONFIRMATION_BUTTONS = [
     {
         'title': 'No',
         'payload': '/deny'
+    },
+    {
+        'title': 'Back to menu',
+        'payload': '/menu'
+    }
+]
+APPOINTMENT_BUTTON = [
+    {
+        'title': 'Book appointment',
+        'payload': '/details'
+    },
+    {
+        'title': 'Menu',
+        'payload': '/menu'
+    }
+]
+MENU_BUTTON = [
+    {
+        'title': 'Menu',
+        'payload': '/menu'
     }
 ]

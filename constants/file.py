@@ -1,3 +1,11 @@
 USER_DETAIL_FILE_Path = 'resources/user_details.json'
 DOCTOR_DETAIL_FILE_PATH = 'resources/doctor.json'
 APPOINTMENT_FILE_PATH = 'resources/appointment.json'
+SHEET_FILE_PATH = 'https://www.googleapis.com/auth/spreadsheets'
+TOKEN_FILE_PATH = 'resources/token.json'
+CREDENTIALS_FILE_PATH = 'resources/credentials.json'
+SHEETS = 'sheets'
+W = 'w'
+V4 = 'v4'
+VALUES = 'values'
+value_input_option = "USER_ENTERED"

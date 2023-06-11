@@ -15,9 +15,12 @@ ABOUT_TEXT = '''
     Our team is at your service 24x7. 😊
 '''
 BOOKING_TEXT = "Your appointment has been scheduled successfully. With {} on {} at {}."
-REACH_TEXT = "Please enter your email address so that we can check you have registered with us or not"
-VISITED_TEXT = "Yes you have visited here before."
-NOT_VISITED_TEXT = "No records found."
-CONTACT_TEXT = "We'll contact you soon "
+REACH_TEXT = "Please enter your email address so that we can check you have any appointment booked with us or not"
+VISITED_TEXT = "Yes we have found your appointment details."
+NOT_VISITED_TEXT = "No appointments booked for this email address\n To book appointment please click button below 👇."
+CONTACT_TEXT = "You can contact us though *+91-1234567890* or you connect through email-address *xyz@gmail.com*"
 USER_TEXT = "Name    : {}  \nEmail   : {}  \nContact : {}  \nSymptom : {}"
+CHOOSE_TEXT = "Please select from given options only."
 FAILED_TEXT = "Sorry Booking Failed, please retry after sometime."
+ASK_NAME = "So to get things started, may I know your name, please?"
+BACK_TEXT = "If you want to exit please press button below 👇 or type 'menu'"
